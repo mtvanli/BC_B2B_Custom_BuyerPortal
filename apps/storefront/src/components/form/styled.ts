@@ -86,13 +86,13 @@ export const StyleNumberTextField = styled(TextField)((props: StyleNumberTextFie
   return allowarrow
     ? {}
     : {
-        '& input[type="number"]': {
-          MozAppearance: 'textfield',
-        },
-        '& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button': {
-          WebkitAppearance: 'none',
-        },
-      };
+      '& input[type="number"]': {
+        MozAppearance: 'textfield',
+      },
+      '& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button': {
+        WebkitAppearance: 'none',
+      },
+    };
 });
 
 export const StyleRectangleFormControlLabel = styled(FormControlLabel)(() => ({

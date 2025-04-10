@@ -15,6 +15,7 @@ import { getContrastColor } from '../outSideComponents/utils/b3CustomStyles';
 import B3AccountInfo from './B3AccountInfo';
 import B3CompanyHierarchy from './B3CompanyHierarchy';
 import B3StatusNotification from './B3StatusNotification';
+import CompanyName from './B3CompanyName'; // Adjust the path as needed
 
 export default function MainHeader({ title }: { title: string }) {
   const isB2BUser = useAppSelector(isB2BUserSelector);
@@ -68,6 +69,9 @@ export default function MainHeader({ title }: { title: string }) {
           alignItems: 'center',
         }}
       >
+        <Box sx={{ mt: 2, mb: 2 }}>
+          <CompanyName />
+        </Box>
         <Grid
           sx={{
             alignItems: 'center',

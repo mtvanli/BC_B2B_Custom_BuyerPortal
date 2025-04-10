@@ -1,7 +1,7 @@
 import { useContext, useEffect, useMemo } from 'react';
 import { matchPath, useLocation, useNavigate } from 'react-router-dom';
 import { useB3Lang } from '@b3/lang';
-import { Badge, List, ListItem, ListItemButton, ListItemText, useTheme } from '@mui/material';
+import { Badge, List, ListItem, ListItemButton, ListItemText, useTheme, Paper, ListItemIcon } from '@mui/material';
 
 import { useMobile } from '@/hooks';
 import { DynamicallyVariableContext } from '@/shared/dynamicallyVariable';
@@ -17,7 +17,18 @@ import { PagesSubsidiariesPermissionProps } from '@/types';
 import { B3SStorage } from '@/utils';
 import { validatePermissionWithComparisonType } from '@/utils/b3CheckPermissions';
 
-import { b3HexToRgb, getContrastColor } from '../outSideComponents/utils/b3CustomStyles';
+import { b3HexToRgb } from '../outSideComponents/utils/b3CustomStyles';
+
+import ShoppingCartCheckoutOutlinedIcon from '@mui/icons-material/ShoppingCartCheckoutOutlined';
+import AddBusinessOutlinedIcon from '@mui/icons-material/AddBusinessOutlined';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
+import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
+import FormatListBulletedOutlinedIcon from '@mui/icons-material/FormatListBulletedOutlined';
+import RequestQuoteOutlinedIcon from '@mui/icons-material/RequestQuoteOutlined';
+import ReceiptOutlinedIcon from '@mui/icons-material/ReceiptOutlined';
+import ShopOutlinedIcon from '@mui/icons-material/ShopOutlined';
+import Shop2OutlinedIcon from '@mui/icons-material/Shop2Outlined';
 
 interface B3NavProps {
   closeSidebar?: (x: boolean) => void;
@@ -192,63 +203,172 @@ export default function B3Nav({ closeSidebar }: B3NavProps) {
   };
 
   return (
-    <List
+    <Paper
+      elevation={0}
       sx={{
-        width: '100%',
-        maxWidth: 360,
-        bgcolor: `${isMobile ? 'background.paper' : 'background.default'}`,
-        color: primaryColor || 'info.main',
-        '& .MuiListItem-root': {
-          '& .MuiButtonBase-root.Mui-selected': {
-            color: getContrastColor(primaryColor) || '#fff',
-            bgcolor: 'primary.main',
-            borderRadius: '4px',
-          },
-          '& .MuiButtonBase-root:hover:not(.Mui-selected)': {
-            bgcolor: b3HexToRgb(primaryColor, 0.12),
-            borderRadius: '4px',
-          },
-        },
+        borderRadius: '4px',
+        backgroundColor: '#ffffff',
+        width: isMobile ? '90%' : '234px',
+        maxWidth: isMobile ? '340px' : 'none',
+        margin: isMobile ? '0 auto' : '10px 0 0 -13px',
+        padding: '20px 8px 29px 8px',
+        border: 'none',
+        boxShadow: '0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)'
       }}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
     >
-      {newRoutes.map((item) => {
-        if (item.name === 'Quotes') {
-          const { pathname } = location;
+      <List
+        sx={{
+          width: '100%',
+          maxWidth: isMobile ? '260px' : '280px',
+          bgcolor: 'background.paper',
+          color: primaryColor || 'info.main',
+          borderRadius: '8px',
+          padding: '4px 8px',
+          '& .MuiListItem-root': {
+            margin: '4px 0',
+            '& .MuiButtonBase-root': {
+              borderRadius: '8px',
+              padding: '8px 10px',  /* Reduced from 10px to 6px */
+              transition: 'all 0.2s ease-in-out',
+              width: '100%',
+              margin: '0 auto',
+            },
+            '& .MuiButtonBase-root.Mui-selected': {
+              color: '#fff',
+              bgcolor: 'primary.main',
+              boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+            },
+            '& .MuiButtonBase-root:hover:not(.Mui-selected)': {
+              bgcolor: b3HexToRgb(primaryColor, 0.12),
+            },
+          },
+        }}
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+      >
+        {newRoutes.map((item) => {
+          if (item.name === 'Quotes') {
+            const { pathname } = location;
+            return (
+              <ListItem key={item.path} disablePadding>
+                <Badge
+                  badgeContent={
+                    quoteDetailHasNewMessages && pathname.includes('quoteDetail') ? '' : 0
+                  }
+                  variant="dot"
+                  sx={{
+                    width: '100%',
+                    '& .MuiBadge-badge.MuiBadge-dot': {
+                      width: 8,
+                      height: 8,
+                      bgcolor: '#FFFFFF',
+                      right: 14,
+                      top: 22,
+                    },
+                  }}
+                >
+                  <ListItemButton onClick={() => handleClick(item)} selected={activePath(item.path)}>
+                    {item.path === '/quotes' && (
+                      <ListItemIcon sx={{
+                        minWidth: '36px',
+                        color: activePath(item.path) ? 'white' : undefined
+                      }}>
+                        <RequestQuoteOutlinedIcon fontSize="medium" color={activePath(item.path) ? "inherit" : "primary"} />
+                      </ListItemIcon>
+                    )}
+                    <ListItemText primary={b3Lang(item.idLang)} />
+                  </ListItemButton>
+                </Badge>
+              </ListItem>
+            );
+          }
+          // Add divider after Company Orders
           return (
+
             <ListItem key={item.path} disablePadding>
-              <Badge
-                badgeContent={
-                  quoteDetailHasNewMessages && pathname.includes('quoteDetail') ? '' : 0
-                }
-                variant="dot"
-                sx={{
-                  width: '100%',
-                  '& .MuiBadge-badge.MuiBadge-dot': {
-                    width: 8,
-                    height: 8,
-                    bgcolor: '#FFFFFF',
-                    right: 14,
-                    top: 22,
-                  },
-                }}
-              >
-                <ListItemButton onClick={() => handleClick(item)} selected={activePath(item.path)}>
-                  <ListItemText primary={b3Lang(item.idLang)} />
-                </ListItemButton>
-              </Badge>
+              <ListItemButton onClick={() => handleClick(item)} selected={activePath(item.path)}>
+                {item.path === '/purchased-products' && (
+                  <ListItemIcon sx={{
+                    minWidth: '36px',
+                    color: activePath(item.path) ? 'white' : undefined
+                  }}>
+                    <ShoppingCartCheckoutOutlinedIcon fontSize="medium" color={activePath(item.path) ? "inherit" : "primary"} />
+                  </ListItemIcon>
+                )}
+                {item.path === '/addresses' && (
+                  <ListItemIcon sx={{
+                    minWidth: '36px',
+                    color: activePath(item.path) ? 'white' : undefined
+                  }}>
+                    <AddBusinessOutlinedIcon fontSize="medium" color={activePath(item.path) ? "inherit" : "primary"} />
+                  </ListItemIcon>
+                )}
+                {item.path === '/user-management' && (
+                  <ListItemIcon sx={{
+                    minWidth: '36px',
+                    color: activePath(item.path) ? 'white' : undefined
+                  }}>
+                    <PeopleAltOutlinedIcon fontSize="medium" color={activePath(item.path) ? "inherit" : "primary"} />
+                  </ListItemIcon>
+                )}
+                {item.path === '/accountSettings' && (
+                  <ListItemIcon sx={{
+                    minWidth: '36px',
+                    color: activePath(item.path) ? 'white' : undefined
+                  }}>
+                    <SettingsOutlinedIcon fontSize="medium" color={activePath(item.path) ? "inherit" : "primary"} />
+                  </ListItemIcon>
+                )}
+                {item.path === '/insights' && (
+                  <ListItemIcon sx={{
+                    minWidth: '36px',
+                    color: activePath(item.path) ? 'white' : undefined
+                  }}>
+                    <AssessmentOutlinedIcon fontSize="medium" color={activePath(item.path) ? "inherit" : "primary"} />
+                  </ListItemIcon>
+                )}
+                {item.path === '/shoppingLists' && (
+                  <ListItemIcon sx={{
+                    minWidth: '36px',
+                    color: activePath(item.path) ? 'white' : undefined
+                  }}>
+                    <FormatListBulletedOutlinedIcon fontSize="medium" color={activePath(item.path) ? "inherit" : "primary"} />
+                  </ListItemIcon>
+                )}
+                {item.path === '/invoice' && (
+                  <ListItemIcon sx={{
+                    minWidth: '36px',
+                    color: activePath(item.path) ? 'white' : undefined
+                  }}>
+                    <ReceiptOutlinedIcon fontSize="medium" color={activePath(item.path) ? "inherit" : "primary"} />
+                  </ListItemIcon>
+                )}
+                {item.path === '/orders' && (
+                  <ListItemIcon sx={{
+                    minWidth: '36px',
+                    color: activePath(item.path) ? 'white' : undefined
+                  }}>
+                    <ShopOutlinedIcon fontSize="medium" color={activePath(item.path) ? "inherit" : "primary"} />
+                  </ListItemIcon>
+                )}
+                {item.path === '/company-orders' && (
+                  <ListItemIcon sx={{
+                    minWidth: '36px',
+                    color: activePath(item.path) ? 'white' : undefined
+                  }}>
+                    <Shop2OutlinedIcon fontSize="medium" color={activePath(item.path) ? "inherit" : "primary"} />
+                  </ListItemIcon>
+                )}
+
+
+                <ListItemText primary={b3Lang(item.idLang)} />
+              </ListItemButton>
             </ListItem>
+
+
           );
-        }
-        return (
-          <ListItem key={item.path} disablePadding>
-            <ListItemButton onClick={() => handleClick(item)} selected={activePath(item.path)}>
-              <ListItemText primary={b3Lang(item.idLang)} />
-            </ListItemButton>
-          </ListItem>
-        );
-      })}
-    </List>
+        })}
+      </List>
+    </Paper>
   );
 }

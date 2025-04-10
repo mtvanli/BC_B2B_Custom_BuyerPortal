@@ -341,8 +341,8 @@ function Invoice() {
       const filtering = filterData ? isFiltering(filterData) : false;
       const currentCheckedArr = filtering
         ? filterLists.filter((item: InvoiceListNode) =>
-            checkedArr.some((item2: InvoiceListNode) => item?.node?.id === item2?.node?.id),
-          )
+          checkedArr.some((item2: InvoiceListNode) => item?.node?.id === item2?.node?.id),
+        )
         : checkedArr;
 
       const invoiceNumber = currentCheckedArr.map((item: InvoiceListNode) => item.node.id);
@@ -717,10 +717,10 @@ function Invoice() {
                 paddingTop: '8px',
               },
               '& input[type="number"]::-webkit-inner-spin-button, & input[type="number"]::-webkit-outer-spin-button':
-                {
-                  WebkitAppearance: 'none',
-                  margin: 0,
-                },
+              {
+                WebkitAppearance: 'none',
+                margin: 0,
+              },
             }}
             onChange={(e: CustomFieldItems) => {
               const val = e.target?.value;
@@ -793,8 +793,8 @@ function Invoice() {
     const filtering = filterData ? isFiltering(filterData) : false;
     const currentCheckedArr = filtering
       ? filterLists.filter((item: InvoiceListNode) =>
-          checkedArr.some((item2: InvoiceListNode) => item?.node?.id === item2?.node?.id),
-        )
+        checkedArr.some((item2: InvoiceListNode) => item?.node?.id === item2?.node?.id),
+      )
       : checkedArr;
 
     if (filtering) {

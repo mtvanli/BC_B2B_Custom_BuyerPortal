@@ -219,7 +219,7 @@ export function B3Table<Row>({
     count: 0,
     first: 10,
   },
-  onPaginationChange = () => {},
+  onPaginationChange = () => { },
   rowsPerPageOptions = [10, 20, 50],
   showPagination = true,
   renderItem,
@@ -234,7 +234,7 @@ export function B3Table<Row>({
   tableKey,
   showCheckbox = false,
   showSelectAllCheckbox = false,
-  setNeedUpdate = () => {},
+  setNeedUpdate = () => { },
   handleSelectAllItems,
   handleSelectOneItem,
   hover = false,
@@ -355,7 +355,7 @@ export function B3Table<Row>({
               count={count}
               rowsPerPage={first}
               page={first === 0 ? 0 : offset / first}
-              of={b3Lang('global.pagination.of')}
+              //of={b3Lang('global.pagination.of')}
               onPageChange={handleChangePage}
               onRowsPerPageChange={handleChangeRowsPerPage}
             />
@@ -394,7 +394,7 @@ export function B3Table<Row>({
               count={count}
               rowsPerPage={first}
               page={first === 0 ? 0 : offset / first}
-              of={b3Lang('global.pagination.of')}
+              //of={b3Lang('global.pagination.of')}
               onPageChange={handleChangePage}
               onRowsPerPageChange={handleChangeRowsPerPage}
             />
@@ -441,8 +441,8 @@ export function B3Table<Row>({
                         sx={
                           column?.style
                             ? {
-                                ...column.style,
-                              }
+                              ...column.style,
+                            }
                             : {}
                         }
                         sortDirection={column.key === orderBy ? sortDirection : false}
@@ -512,7 +512,7 @@ export function B3Table<Row>({
               count={count}
               rowsPerPage={first}
               page={first === 0 ? 0 : offset / first}
-              of={b3Lang('global.pagination.of')}
+              //of={b3Lang('global.pagination.of')}
               onPageChange={handleChangePage}
               onRowsPerPageChange={handleChangeRowsPerPage}
             />

@@ -26,7 +26,7 @@ const orderStatusColor: OrderStatusConfig = {
   Refunded: '#F4CC46',
   Declined: '#7A6041',
   Cancelled: '#000000',
-  Shipped: '#C4DD6C',
+  Shipped: '#74b259',
   Completed: '#C4DD6C',
   'Partially Shipped': '#516FAE',
   'Awaiting Pickup': '#BE7FEB',

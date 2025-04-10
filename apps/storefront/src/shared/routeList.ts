@@ -235,6 +235,17 @@ export const routeList: (BuyerPortalRoute | RouteItem)[] = [
     isTokenLogin: false,
     idLang: 'global.navMenu.quoteDetail',
   },
+  // Add this to the routeList array
+  {
+    path: '/insights',
+    name: 'Insights',
+    wsKey: 'insights', // Use a unique wsKey
+    isMenuItem: true, // This ensures it shows up in the nav menu
+    permissions: addressesPermissions,
+    isTokenLogin: true,
+    idLang: 'global.navMenu.insights', // This is for localization
+  },
+
 ];
 
 export const getAllowedRoutesWithoutComponent = (globalState: GlobalState): BuyerPortalRoute[] => {

@@ -29,19 +29,19 @@ interface FlexItemProps {
 const Flex = styled('div')<FlexProps>(({ isHeader, isMobile }) => {
   const headerStyle = isHeader
     ? {
-        borderBottom: '1px solid #D9DCE9',
-        paddingBottom: '8px',
-      }
+      borderBottom: '1px solid #D9DCE9',
+      paddingBottom: '8px',
+    }
     : {};
 
   const mobileStyle = isMobile
     ? {
-        borderTop: '1px solid #D9DCE9',
-        padding: '12px 0 12px',
-        '&:first-of-type': {
-          marginTop: '12px',
-        },
-      }
+      borderTop: '1px solid #D9DCE9',
+      padding: '12px 0 12px',
+      '&:first-of-type': {
+        marginTop: '12px',
+      },
+    }
     : {};
 
   const flexWrap = isMobile ? 'wrap' : 'initial';
@@ -331,8 +331,8 @@ export default function B3ProductList<T>(props: ProductProps<T>) {
               sx={
                 isMobile
                   ? {
-                      fontSize: '14px',
-                    }
+                    fontSize: '14px',
+                  }
                   : {}
               }
             >
@@ -417,8 +417,8 @@ export default function B3ProductList<T>(props: ProductProps<T>) {
               sx={
                 isMobile
                   ? {
-                      fontSize: '14px',
-                    }
+                    fontSize: '14px',
+                  }
                   : {}
               }
             >

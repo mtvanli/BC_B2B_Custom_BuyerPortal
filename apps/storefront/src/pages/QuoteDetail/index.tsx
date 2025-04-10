@@ -694,20 +694,20 @@ function QuoteDetail() {
             sx={
               isMobile
                 ? {
-                    flexBasis: '100%',
-                    pl: '16px',
-                  }
+                  flexBasis: '100%',
+                  pl: '16px',
+                }
                 : {
-                    mr: '16px',
-                  }
+                  mr: '16px',
+                }
             }
           >
             <Box
               sx={
                 isMobile
                   ? {
-                      flexBasis: '100%',
-                    }
+                    flexBasis: '100%',
+                  }
                   : {}
               }
             >
@@ -729,11 +729,11 @@ function QuoteDetail() {
             sx={
               isMobile
                 ? {
-                    flexBasis: '100%',
-                  }
+                  flexBasis: '100%',
+                }
                 : {
-                    pl: 0,
-                  }
+                  pl: 0,
+                }
             }
           >
             <Box

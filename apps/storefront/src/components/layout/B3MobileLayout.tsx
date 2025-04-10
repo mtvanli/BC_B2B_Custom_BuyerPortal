@@ -140,7 +140,7 @@ export default function B3MobileLayout({
           sx={{
             height: '100vh',
             position: 'fixed',
-            width: '92vw',
+            width: '70vw',
             zIndex: 1000,
             left: 0,
             top: 0,

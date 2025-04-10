@@ -17,6 +17,8 @@ import B3MainHeader from './B3MainHeader';
 import B3MobileLayout from './B3MobileLayout';
 import B3Nav from './B3Nav';
 
+
+
 const SPECIAL_PATH_TEXTS = {
   '/purchased-products': 'global.purchasedProducts.title',
   '/orders': 'global.orders.title',
@@ -130,6 +132,7 @@ export default function B3Layout({ children }: { children: ReactNode }) {
             }}
           >
             <B3Logo />
+
             <Box
               sx={{
                 pt: '24px',
@@ -146,10 +149,11 @@ export default function B3Layout({ children }: { children: ReactNode }) {
               flexDirection: 'column',
               maxWidth: '1450px',
               width: '100%',
-              p: '0 0px 0px 50px',
+              p: '0 0px 0px 65px',
               ...overflowStyle,
             }}
           >
+
             <B3MainHeader title={title} />
             <CompanyCredit />
             <Box

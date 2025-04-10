@@ -44,7 +44,7 @@ export enum HeadlessRoutes {
   ACCOUNT_SETTINGS = '/accountSettings',
   COMPANY_HIERARCHY = '/company-hierarchy',
   INVOICE = '/invoice',
-  CLOSE = 'close',
+  CLOSE = 'close'
 }
 
 export type HeadlessRoute = keyof typeof HeadlessRoutes;

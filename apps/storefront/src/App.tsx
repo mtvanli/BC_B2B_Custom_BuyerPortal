@@ -54,7 +54,7 @@ const HeadlessController = lazy(() => import('@/components/HeadlessController'))
 
 const ThemeFrame = lazy(() => import('@/components/ThemeFrame'));
 
-const FONT_URL = 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap';
+const FONT_URL = 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700&display=swap';;
 
 export default function App() {
   const showPageMask = usePageMask();
@@ -110,7 +110,7 @@ export default function App() {
   const CUSTOM_STYLES = `
   body {
     background: ${backgroundColor};
-    font-family: Roboto;
+    font-family: "Open Sans", sans-serif;
   }`;
 
   const [customStyles, setCustomStyle] = useState<string>(CUSTOM_STYLES);
